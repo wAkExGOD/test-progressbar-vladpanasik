@@ -1,0 +1,90 @@
+.Progressbar {
+    width: 100%;
+    background: var(--breadcrumbs-background);
+    padding-bottom: 58px;
+    display: flex;
+    justify-content: center;
+    
+    &_container {
+        position: relative;
+        &::before {
+            content: '';
+            background-color: lightgrey;
+            position: absolute;
+            top: 50%;
+            left: 0;
+            transform: translateY(-50%);
+            height: 4px;
+            width: 100%;
+            // z-index: -1;
+            transition: .4s ease;
+        }
+        max-width: var(--checkout-max-width);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &_progress {
+        background-color: var(--button-background);
+        position: absolute;
+        top: 50%;
+        left: 0;
+        transform: translateY(-50%);
+        height: 4px;
+        width: 0%;
+        // z-index: -1;
+        transition: 1.5s cubic-bezier(.75,.1,.25,.9)
+    }
+
+    &_elem {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 62px;
+        height: 62px;
+        background: var(--breadcrumbs-background);
+        &:not(:last-child) {
+            margin-right: 300px;
+        }
+    }
+
+    &_circle {
+        position: relative;
+        width: 42px;
+        height: 42px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: 1.5s cubic-bezier(.75,.1,.25,.9);
+        background: #d4d4d4;
+        font-size: 2rem;
+        .num_status, .text_status {
+            color: darkgrey;
+            transition: 1.5s cubic-bezier(.75,.1,.25,.9);
+        }
+        .num_status {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            span {
+                padding-top: 2px;
+            }
+        }
+        .text_status {
+            position: absolute;
+            top: 34px;
+        }
+        &.active {
+            background-color: var(--button-background);
+            background: red;
+            .num_status {
+                color: var(--button-color);
+            }
+            .text_status {
+                color: inherit;
+            }
+        }
+    }
+}
