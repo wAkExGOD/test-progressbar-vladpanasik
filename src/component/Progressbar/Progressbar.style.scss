@@ -19,6 +19,7 @@
             // z-index: -1;
             transition: .4s ease;
         }
+        width: 100%;
         max-width: var(--checkout-max-width);
         display: flex;
         justify-content: space-between;
@@ -44,9 +45,6 @@
         width: 62px;
         height: 62px;
         background: var(--breadcrumbs-background);
-        &:not(:last-child) {
-            margin-right: 300px;
-        }
     }
 
     &_circle {
